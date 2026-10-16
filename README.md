@@ -1,75 +1,254 @@
-# SkillCarry — AI-Based Career Guidance, Skill-Gap Identification & Learning-to-Career Pathways
+# SkillCarry
 
-Built for the **Seva Innovation Challenge 2026** sub-sector:
-> **“AI-Based Career Guidance, Skill-Gap Identification and Learning-to-Career Pathways.”**
-
-SkillCarry transforms technical learning from generic multiple-choice quizzes into a coherent career-guidance journey. It connects career exploration, objective in-browser skill assessment, transparent skill-gap identification, targeted pedagogical remediation, and conceptual transfer verification.
+> **AI-Based Career Guidance, Skill-Gap Identification, and Learning-to-Career Pathways**  
+> *Developed for the Seva Innovation Challenge 2026*
 
 ---
 
-## The 7-Step Student Journey
+## 1. Project Overview
 
+### Problem Statement
+In technical higher education, students frequently learn programming syntax and database queries in isolation without understanding how these competencies translate into real-world engineering roles. Traditional learning platforms often rely on arbitrary multiple-choice quizzes or disjointed coding puzzles that fail to provide:
+1. Clear visibility into entry-level technical pathways and their prerequisite skills.
+2. Objective, evidence-based skill-gap identification based on genuine query execution.
+3. Structured remediation pathways that connect identified deficiencies to role-specific practice.
+4. Independent verification of conceptual understanding to ensure students can transfer knowledge across diverse business domains.
+
+### Purpose of the Application
+**SkillCarry** bridges this divide by transforming technical learning from a standalone assessment into an end-to-end career guidance journey. It guides students through a 7-step pathway:
 ```
 Explore Careers ➔ Create Career Profile ➔ Assess Skills ➔ Identify Skill Gaps ➔ Follow Learning Pathway ➔ Reassess & TransferCheck ➔ View Updated Career Progress
 ```
 
-1. **Explore Careers**: Explore entry-level technical pathways (Data Analyst, Database Developer, Junior Software Developer), responsibilities, technical requirements, and compare pathways side-by-side.
-2. **Career Profile**: Onboard with education level, interests, existing technical foundation, and preferred learning approach. Includes a 1-click **Sample Demo Profile** and local persistence.
-3. **Assess Skills**: Execute genuine SQL queries against an in-browser relational schema (`departments`, `employees`, `orders`) powered by AlaSQL.
-4. **Identify Skill Gaps**: Compare demonstrated competencies against target pathway benchmarks. Each identified gap explains *why* it matters for that specific career.
-5. **Follow Learning Pathway**: Practice targeted modules addressing the student's specific gaps with worked examples, common pitfalls, and interactive challenges.
-6. **Reassess & TransferCheck**: Validate that learning is genuine and transferable through code review/debugging, conceptual failure analysis, and cross-domain schema application (e.g. Healthcare clinic data).
-7. **Updated Career Progress Report**: Review and export a printable/downloadable summary showing target pathway progress, verified competency evidence, and next milestones.
+### Seva Innovation Challenge 2026 Alignment
+- **Sector**: Education & Employment
+- **Sub-Sector**: *“AI-Based Career Guidance, Skill-Gap Identification and Learning-to-Career Pathways.”*
+
+### Intended Users
+- **Undergraduate & Diploma Technical Students**: Preparing for their first technical roles (Data Analyst, Junior Software Developer, Database Developer).
+- **Career Transitioners**: Transitioning into technical data and software careers with structured guidance.
+- **Academic Mentors & Educators**: Tracking student skill development through evidence-based progress reports.
 
 ---
 
-## Core Pillars & Architectural Features
+## 2. Features
 
-### 1. Transparent Career-to-Skill Mapping
-- Predefined competency taxonomy:
-  - `COMP_SQL_FILTER`: SQL Filtering & Conditional Logic
-  - `COMP_SQL_AGG`: SQL Aggregations & Group Summaries
-  - `COMP_SQL_JOIN`: Relational Joins & Multi-Table Queries
-  - `COMP_SQL_SCHEMA`: Relational Schema & Key Integrity
-  - `COMP_DATA_INTERP`: Analytical Data Interpretation
-  - External Competencies: Clearly marked as *Requires Further Assessment* (e.g., Power BI dashboards, Git collaboration, REST APIs).
+### Currently Implemented & Fully Functional Features
+- **Career Goal Dashboard**: Real-time progress dashboard displaying the active career goal, 7-step pathway stepper, pathway alignment index, priority skill gaps, and immediate recommended learning actions.
+- **Student Career Profile**: Interactive onboarding collecting education level, career interests, existing skills, and preferred learning style. Includes a **1-click Sample Demo Profile** and local persistence.
+- **Career Pathway Explorer**: In-depth profiles for three entry-level roles:
+  1. *Data Analyst*
+  2. *Database Developer / Junior Database Professional*
+  3. *Junior Software Developer*  
+  Each pathway provides day-to-day responsibilities, technical & problem-solving competencies, transparent in-prototype assessment scopes, and a 5-step learning roadmap.
+- **Side-by-Side Pathway Comparison**: Interactive modal enabling students to compare two career tracks across daily focus, tech stack, architecture scope, and deliverables.
+- **Career-Mapped Skill Assessment**: Hands-on SQL query console executing against an in-browser relational database (`departments`, `employees`, `orders`) with live tabular outputs and performance timing.
+- **Real-Time Query Evaluation**: Genuine comparison of student queries against target relational logic, with constructive diagnostic feedback (e.g. recognizing missing `HAVING` clauses or unlinked outer joins).
+- **Personalised Skill-Gap Engine**: Algorithmic comparison of student demonstrated competencies against pathway benchmark thresholds. Categorizes skills into *Demonstrated*, *Needs Improvement*, and *Requiring Further Assessment*, with role-specific rationales explaining *why* each gap matters.
+- **Targeted Learning Pathway**: Interactive modules addressing identified gaps with core concepts, common traps, worked examples with step-by-step reasoning, and embedded interactive query practice with immediate execution.
+- **SkillCarry TransferCheck™**: Independent conceptual transfer verification assessing:
+  1. Query code review & bug diagnosis (finding logic flaws in peer queries)
+  2. Duplicate row & Cartesian explosion reasoning
+  3. Cross-domain application (transferring SQL aggregation to a healthcare clinic database)
+  Displays *Initial Assessment*, *TransferCheck Verification*, and *Reassessment* scores separately.
+- **Updated Career Progress Report**: Printable (`window.print()`) and JSON-downloadable comprehensive report detailing student profile, pathway alignment index, competency evidence, completed modules, and next learning roadmap.
+- **State Persistence & Demo Reset**: Complete student progress is stored in `localStorage` across page refreshes, with **Load Demo Data** and **Reset** capabilities.
 
-### 2. Client-Side Relational Engine (AlaSQL)
-- Executes real queries locally in browser memory.
-- Validates student query logic, column projection, and dataset result comparison.
-- **Honest Feedback**: Explicitly communicates that queries run client-side in browser memory with zero simulated or fake remote database claims.
-
-### 3. Personalised Skill-Gap Engine
-- Compares student performance with role benchmarks (e.g., 80% threshold for Data Analyst aggregations).
-- Categorizes competencies into **Demonstrated**, **Needs Improvement**, and **Requiring Further Assessment**.
-- Explains the exact role context of why each gap matters.
-- Dynamically recommends the next pedagogical module.
-
-### 4. Retained & Enhanced SkillCarry TransferCheck™
-- Displays three separate performance indicators:
-  1. Initial Task Performance
-  2. Independent Verification (TransferCheck)
-  3. Reassessment / Updated Standing
-- Clearly states: *"These are indicators of demonstrated conceptual transfer, not proof of AI-free work or scientific certification."*
-
-### 5. Local Storage Persistence & Reset
-- Complete state persists across page refreshes.
-- Includes **"Load Demo Data"** for rapid evaluation and **"Reset"** to test from scratch.
+### Future Scope & Planned Enhancements
+- Live integration with external Large Language Model APIs (e.g., Google Gemini API) for dynamic natural-language query explanations.
+- External assessment connectors for automated Git repository pull request audits and live Power BI/Tableau dashboard verification.
+- User account authentication and multi-device cloud synchronization.
 
 ---
 
-## Quick Start & Running the Project
+## 3. Technology Stack
 
-```bash
-# Navigate to the project directory
-cd "C:\Users\Aditi Thakare\.gemini\antigravity\scratch\skillcarry"
+- **Frontend Framework**: [React 19](https://react.dev/) (Component-based UI architecture)
+- **Build Tool & Bundler**: [Vite 8](https://vitejs.dev/) (High-performance ES module bundler)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with `@tailwindcss/vite`
+- **In-Browser Relational SQL Engine**: [AlaSQL](https://alasql.org/) (Client-side in-memory relational database executing standard SQL queries without external server dependencies)
+- **Icons**: [Lucide React](https://lucide.dev/) (Modern vector icons)
+- **State Management & Persistence**: React Hooks (`useState`, `useEffect`) and browser `localStorage`
+- **Testing & Verification**: Node.js ES module automated test suite (`test_journey.js`)
 
-# Run development server
-npm run dev
+---
 
-# Or build and preview production build
-npm run build
-npm run preview
+## 4. Project Structure
+
+```
+SkillCarry/
+├── public/                     # Static assets served at root
+│   ├── favicon.svg             # Application brand vector icon
+│   └── robots.txt              # Search engine crawler configuration
+├── src/                        # Application source code
+│   ├── components/             # Reusable UI pages and modular components
+│   │   ├── CareerCompareModal.jsx    # Side-by-side pathway comparison modal
+│   │   ├── CareerExplorerPage.jsx    # Career pathways catalog and detail view
+│   │   ├── CareerProfilePage.jsx     # Student onboarding and profile editor
+│   │   ├── CareerReportPage.jsx      # Printable/exportable progress report
+│   │   ├── DashboardPage.jsx         # Main career progress overview dashboard
+│   │   ├── LearningPathwayPage.jsx   # Targeted learning modules & practice
+│   │   ├── Navbar.jsx                # Navigation bar with role badge & demo toggles
+│   │   ├── SkillAssessmentPage.jsx   # In-browser SQL assessment console
+│   │   ├── SkillGapPage.jsx          # Personalised skill-gap identification
+│   │   ├── TransferCheckPage.jsx     # Independent reasoning & code review
+│   │   └── WorkflowStepper.jsx       # 7-step student journey workflow indicator
+│   ├── data/                   # Predefined datasets and educational models
+│   │   ├── assessmentTasks.js        # 5 SQL tasks, test schema, and baseline queries
+│   │   ├── careersData.js            # 3 technical pathways, responsibilities, roadmaps
+│   │   ├── competenciesData.js       # Competency taxonomy and assessment boundaries
+│   │   ├── demoProfile.js            # Sample student onboarding demo profile
+│   │   ├── learningModulesData.js    # Remedial modules, worked examples, challenges
+│   │   └── transferCheckData.js      # Conceptual transfer and code review tasks
+│   ├── services/               # Core application logic and engines
+│   │   ├── skillGapEngine.js         # Rule-based gap identification & alignment index
+│   │   ├── sqlEngine.js              # AlaSQL client-side database service
+│   │   └── storageService.js         # localStorage persistence, demo loader, and reset
+│   ├── App.jsx                 # Top-level application router and state coordinator
+│   ├── index.css               # Global typography, Tailwind imports, print styles
+│   └── main.jsx                # Application DOM entry point
+├── .env.example                # Safe environment variable template
+├── .gitignore                  # Git exclude rules for node_modules, dist, secrets
+├── index.html                  # HTML5 entry page with Google Fonts
+├── package.json                # Project dependencies, metadata, and scripts
+├── package-lock.json           # Deterministic dependency lockfile
+├── test_journey.js             # Automated end-to-end verification test suite
+├── vercel.json                 # Vercel deployment configuration with SPA routing
+├── vite.config.js              # Vite configuration with React & Tailwind plugins
+└── README.md                   # Comprehensive project documentation
 ```
 
-Open `http://localhost:5173` in any modern web browser.
+---
+
+## 5. Prerequisites
+
+Before running the project on your Windows laptop, ensure you have:
+1. **Node.js**: Version **v18.0.0 or higher** (recommended: Node.js v20 LTS or v22 LTS).  
+   *Check in terminal: `node -v`*
+2. **npm**: Version **9.0.0 or higher** (bundled with Node.js).  
+   *Check in terminal: `npm -v`*
+3. **Visual Studio Code**: Modern release with the *Tailwind CSS IntelliSense* extension (optional).
+4. **Git**: Installed for version control and pushing to GitHub.  
+   *Check in terminal: `git --version`*
+
+---
+
+## 6. Installation and Setup in Visual Studio Code
+
+Follow these numbered steps to run SkillCarry locally:
+
+1. **Open the Project Folder in VS Code**:
+   - Open Visual Studio Code.
+   - Click **File → Open Folder...** (or press `Ctrl + K, Ctrl + O`).
+   - Navigate to and select the `SkillCarry` directory.
+
+2. **Open the Integrated Terminal**:
+   - In VS Code, click **Terminal → New Terminal** (or press `` Ctrl + ` ``).
+
+3. **Install Dependencies**:
+   Run the following command in the terminal to restore packages from `package.json`:
+   ```powershell
+   npm install
+   ```
+
+4. **Configure Environment Variables (Optional)**:
+   SkillCarry runs out-of-the-box without any mandatory environment variables. If you wish to customize local settings:
+   ```powershell
+   copy .env.example .env.local
+   ```
+
+5. **Start the Local Development Server**:
+   ```powershell
+   npm run dev
+   ```
+
+6. **Open the Application**:
+   - Click the local URL displayed in the terminal (typically `http://localhost:5173`).
+   - The application will open in your default browser.
+
+---
+
+## 7. Available Scripts and Commands
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the Vite development server with Hot Module Replacement (HMR). |
+| `npm run build` | Compiles and bundles production-ready assets into the `dist/` directory. |
+| `npm run preview` | Locally serves the production build from `dist/` to verify production behavior. |
+| `npm test` | Runs the automated end-to-end test suite (`test_journey.js`) validating the SQL engine, pathways, and skill-gap engine. |
+
+---
+
+## 8. Backend and Persistence Architecture
+
+- **Client-Side Relational Engine**: SkillCarry does not require a remote backend or separate database server to run. It initializes an in-memory relational database directly in the student's browser via **AlaSQL**.
+- **Data Persistence**: All student profile data, assessment results, TransferCheck attempts, and module completions are saved securely in browser **localStorage** under namespaced keys (`skillcarry_*`).
+- **Data Privacy**: No student queries or personal data are transmitted to external servers.
+
+---
+
+## 9. Environment Variables
+
+The project includes `.env.example` as a template:
+
+| Variable | Required | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `VITE_APP_NAME` | No | `SkillCarry` | Application display name. |
+| `VITE_APP_ENV` | No | `development` | Active runtime environment. |
+| `VITE_GEMINI_API_KEY` | No | *(None)* | Optional API key for future external LLM explanation integrations. |
+
+---
+
+## 10. Publishing to GitHub
+
+To publish this project to your personal GitHub account:
+
+1. **Create a New GitHub Repository**:
+   - Go to [github.com/new](https://github.com/new).
+   - Name the repository `SkillCarry`.
+   - Set visibility to **Public** (or Private).
+   - **Do NOT** initialize with a README, `.gitignore`, or license (the project already contains them).
+   - Click **Create repository**.
+
+2. **Connect and Push from VS Code Terminal**:
+   Run the following commands in the `SkillCarry` terminal (replace `YOUR-USERNAME` with your actual GitHub username):
+   ```powershell
+   # Verify git status
+   git status
+
+   # If not already on main branch:
+   git branch -M main
+
+   # Add your GitHub remote repository (replace with your URL)
+   git remote add origin https://github.com/YOUR-USERNAME/SkillCarry.git
+
+   # Push to GitHub
+   git push -u origin main
+   ```
+
+---
+
+## 11. Deployment to Vercel
+
+SkillCarry is pre-configured for one-click deployment on [Vercel](https://vercel.com/):
+
+1. **Push your code to GitHub** following the steps above.
+2. Sign in to your [Vercel Dashboard](https://vercel.com/).
+3. Click **Add New... → Project**.
+4. Select your **SkillCarry** GitHub repository and click **Import**.
+5. Configure Project Settings:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+6. Click **Deploy**.
+7. Vercel will build and deploy the application with a public HTTPS URL (e.g., `https://skillcarry.vercel.app`).
+8. The included [`vercel.json`](./vercel.json) file automatically handles client-side routing rewrites.
+
+---
+
+## 12. Limitations and Honest Disclaimers
+
+1. **Formative Assessment Disclaimer**: SkillCarry provides formative learning evidence based on in-browser SQL problem sets and conceptual checks. It does not certify legal employer qualifications or guarantee employment.
+2. **Rule-Based Recommendation Engine**: Assessment evaluation, gap identification, and learning recommendations use a transparent, deterministic rule-based engine. It does not claim to use black-box artificial intelligence where deterministic logic is used.
+3. **Prototype Assessment Boundaries**: The prototype directly evaluates SQL Querying, Aggregations, Joins, and Relational Schema understanding. Broader skills (such as BI Dashboard creation, Git branch management, and full-stack REST APIs) are clearly labeled as *Requiring Further Assessment*.
