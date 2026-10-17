@@ -3,6 +3,11 @@
 > **AI-Based Career Guidance, Skill-Gap Identification, and Learning-to-Career Pathways**  
 > *Developed for the Seva Innovation Challenge 2026*
 
+
+## Live Demo
+
+**[Click here to open SkillCarry](https://skill-carry.vercel.app/)**
+
 ---
 
 ## 1. Project Overview
